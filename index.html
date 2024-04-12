@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* CSS untuk teks dan hati */
+        .heart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        #loading-text {
+          color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px; /* Atur jarak antara hati dan teks */
+        }
+
+        /* CSS untuk hati */
+        #heart {
+            display: none; /* Sembunyikan hati secara awal */
+        }
+    </style>
+</head>
+<body>
+    <!--Made by Subham-->
+    <!-- Kontainer untuk hati dan teks -->
+    <div class="heart-container">
+        <div class="heart" id="heart"></div>
+        <!-- Teks Loading -->
+        <div id="loading-text"></div>
+        <!-- Animasi Hati -->
+        
+    </div>
+
+    <script src="scrip.js"></script>
+
+    <script>
+        // Fungsi untuk menampilkan teks secara bertahap
+        function showTextGradually(text, index) {
+            var loadingText = document.getElementById('loading-text');
+            if (index < text.length) {
+                loadingText.textContent += text.charAt(index);
+                setTimeout(function() {
+                    showTextGradually(text, index + 1);
+                }, 170); // Waktu jeda antara munculnya setiap huruf (dalam milidetik)
+            } else {
+                // Setelah teks selesai ditampilkan, tampilkan hati dengan efek fading
+                var heart = document.getElementById('heart');
+                fadeIn(heart);
+            }
+        }
+
+        // Fungsi untuk membuat efek fading
+        function fadeIn(element) {
+            var opacity = 0;
+            element.style.display = 'block';
+            var fadeInInterval = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeInInterval);
+                }
+            }, 100); // Waktu interval untuk fading (dalam milidetik)
+        }
+
+        // Panggil fungsi untuk menampilkan teks secara bertahap saat halaman dimuat
+        showTextGradually("semangatt sakit gigi nyaa", 0);
+    </script>
+</body>
+</html>

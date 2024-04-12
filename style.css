@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    background: #000000;
+}
+
+.heart {
+    width: 30px; /* Ubah nilai width menjadi lebih kecil */
+    height: 30px; /* Ubah nilai height menjadi lebih kecil */
+    background: rgb(255, 0, 0);
+    transform: rotate(-45deg);
+    box-shadow: -5px 5px 60px rgb(255, 0, 0); /* Sesuaikan ukuran bayangan */
+    animation: heart 0.1s linear infinite;
+    position: relative; /* Tambahkan properti position: relative; agar properti top/right/left/bottom berfungsi */
+    right: 0px; /* Mengubah posisi ke kanan sejauh 50px */
+}
+
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(0.9);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.9);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.9);
+    }
+}
+
+.heart::before {
+    content: "";
+    position: absolute;
+    width: 30px; /* Ubah nilai width menjadi lebih kecil */
+    height: 40px; /* Ubah nilai height menjadi lebih kecil */
+    background: rgb(255, 0, 0);
+    top: -45%; /* Sesuaikan posisi top */
+    border-radius: 30px; /* Sesuaikan radius sudut */
+    box-shadow: -5px 5px 60px rgb(255, 0, 0); /* Sesuaikan ukuran bayangan */
+}
+
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 40px; /* Ubah nilai width menjadi lebih kecil */
+    height: 30px; /* Ubah nilai height menjadi lebih kecil */
+    background: rgb(255, 0, 0);
+    right: -45%; /* Sesuaikan posisi right */
+    border-radius: 30px; /* Sesuaikan radius sudut */
+    box-shadow: -5px 5px 60px rgb(255, 0, 0); /* Sesuaikan ukuran bayangan */
+}
